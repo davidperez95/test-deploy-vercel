@@ -1,0 +1,19 @@
+### Recuperar todas las fields
+GET http://localhost:1234/api/fields
+
+### Recuperar field por id
+GET http://localhost:1234/api/fields/1
+
+### Recuperar todas las fields por filtro
+GET http://localhost:1234/api/fields?deporte=futbol
+
+### Crear una chanca nueva
+POST http://localhost:1234/api/fields
+Content-Type: application/json
+
+{
+    "nombre": "El coliseo",
+    "descripcion": "El coliseo",
+    "precio": 12.30,
+    "deporte": "tenis"
+}
