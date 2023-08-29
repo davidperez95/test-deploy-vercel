@@ -1,19 +1,31 @@
 ### Recuperar todas las fields
-GET http://localhost:1234/api/fields
+GET http://localhost:8000/api/fields
 
 ### Recuperar field por id
-GET http://localhost:1234/api/fields/1
+GET http://localhost:8000/api/fields/2
 
 ### Recuperar todas las fields por filtro
-GET http://localhost:1234/api/fields?deporte=futbol
+GET http://localhost:8000/api/fields?ciudad=bogota
 
 ### Crear una chanca nueva
-POST http://localhost:1234/api/fields
+POST http://localhost:8000/api/fields
 Content-Type: application/json
 
 {
     "nombre": "El coliseo",
-    "descripcion": "El coliseo",
+    "descripcion": "el colisoe",
     "precio": 12.30,
-    "deporte": "tenis"
+    "deporte": "tenis",
+    "ciudad": "cali"
 }
+
+### Actualizar o modificar una cancha
+PATCH http://localhost:8000/api/fields/4
+Content-Type: application/json
+
+{
+    "descripcion": "El coliseo"
+}
+
+### Eliminar una cancha
+DELETE http://localhost:8000/api/fields/2

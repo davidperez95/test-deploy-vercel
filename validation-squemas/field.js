@@ -7,11 +7,16 @@ const fieldSquema = z.object({
     }).nonempty({message: "El nombre es requerido"}),
     descripcion: z.string(),
     precio: z.number().positive(),
-    deporte: z.enum(["futbol", "tenis"])
+    deporte: z.enum(["futbol", "tenis"]),
+    ciudad: z.string({required_error: "La ciudad es requerida"})
 })
 
 function validateField(object) {
     return fieldSquema.safeParseAsync(object)
 }
 
-export { validateField };
+function validateFieldUpdate(object) {
+    return fieldSquema.partial().safeParseAsync(object)
+}
+
+export { validateField, validateFieldUpdate };
