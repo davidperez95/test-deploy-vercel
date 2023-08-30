@@ -61,7 +61,10 @@ fieldRouter.post("/", async (req, res) => {
                 precio: field.precio,
                 deporte: field.deporte,
                 ciudad: {
-                    create: {nombre: field.ciudad}
+                    connectOrCreate: {
+                        where: { nombre: field.ciudad },
+                        create: { nombre: field.ciudad }
+                    }
                 }
             }
         })

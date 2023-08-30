@@ -12,19 +12,20 @@ POST http://localhost:8000/api/fields
 Content-Type: application/json
 
 {
-    "nombre": "El coliseo",
-    "descripcion": "el colisoe",
+    "nombre": "El monumental",
+    "descripcion": "El monumental",
     "precio": 12.30,
-    "deporte": "tenis",
-    "ciudad": "cali"
+    "deporte": "futbol",
+    "ciudad": "buenos aires"
 }
 
 ### Actualizar o modificar una cancha
-PATCH http://localhost:8000/api/fields/4
+PATCH http://localhost:8000/api/fields/1
 Content-Type: application/json
 
 {
-    "descripcion": "El coliseo"
+    "descripcion": "El coliseo",
+    "deporte": "futbol"
 }
 
 ### Eliminar una cancha
