@@ -62,8 +62,8 @@ fieldRouter.post("/", async (req, res) => {
                 deporte: field.deporte,
                 ciudad: {
                     connectOrCreate: {
-                        where: { nombre: field.ciudad },
-                        create: { nombre: field.ciudad }
+                        where: { ciudadNombre: field.ciudad },
+                        create: { ciudadNombre: field.ciudad }
                     }
                 }
             }
