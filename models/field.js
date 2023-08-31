@@ -27,22 +27,46 @@ export class FieldModel {
 
     static async createField ({ field }) {
         try {
-            const newField = await prisma.field.create({
-                data: {
-                    nombre: field.nombre,
-                    descripcion: field.descripcion,
-                    precio: field.precio,
-                    deporte: field.deporte,
-                    ciudad: {
-                        connectOrCreate: {
-                            where: { ciudadNombre: field.ciudad },
-                            create: { ciudadNombre: field.ciudad }
+
+            const ciudad = await prisma.ciudad.findFirst({
+                where: {ciudadNombre: field.ciudad}
+            })
+
+            console.log(ciudad)
+
+            if (ciudad) {
+                const newField = await prisma.field.create({
+                    data: {
+                        nombre: field.nombre,
+                        descripcion: field.descripcion,
+                        precio: field.precio,
+                        deporte: field.deporte,
+                        ciudad: {
+                            connect: {
+                                ciudadId: ciudad.ciudadId
+                            }
                         }
                     }
-                }
-            })
-    
-            return newField
+                })
+
+                return newField
+            } else {
+                const newField = await prisma.field.create({
+                    data: {
+                        nombre: field.nombre,
+                        descripcion: field.descripcion,
+                        precio: field.precio,
+                        deporte: field.deporte,
+                        ciudad: {
+                            create: {
+                               ciudadNombre: field.ciudad
+                            }
+                        }
+                    }
+                })
+
+                return newField
+            }
     
         } catch (e) {
             if (e instanceof Prisma.PrismaClientKnownRequestError) {

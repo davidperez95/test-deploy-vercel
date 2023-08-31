@@ -12,11 +12,11 @@ POST http://localhost:8000/api/fields
 Content-Type: application/json
 
 {
-    "nombre": "El monumental",
-    "descripcion": "El monumental",
+    "nombre": "El atanasio",
+    "descripcion": "El atanasio",
     "precio": 12.30,
     "deporte": "futbol",
-    "ciudad": "buenos aires"
+    "ciudad": "medellin"
 }
 
 ### Actualizar o modificar una cancha
