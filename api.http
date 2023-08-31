@@ -2,10 +2,10 @@
 GET http://localhost:8000/api/fields
 
 ### Recuperar field por id
-GET http://localhost:8000/api/fields/2
+GET http://localhost:8000/api/fields/1
 
 ### Recuperar todas las fields por filtro
-GET http://localhost:8000/api/fields?ciudad=bogota
+GET http://localhost:8000/api/fields?deporte=futbol
 
 ### Crear una chanca nueva
 POST http://localhost:8000/api/fields
@@ -20,13 +20,12 @@ Content-Type: application/json
 }
 
 ### Actualizar o modificar una cancha
-PATCH http://localhost:8000/api/fields/1
+PATCH http://localhost:8000/api/fields/10
 Content-Type: application/json
 
 {
-    "descripcion": "El coliseo",
-    "deporte": "futbol"
+    "deporte": "tenis"
 }
 
 ### Eliminar una cancha
-DELETE http://localhost:8000/api/fields/2
+DELETE http://localhost:8000/api/fields/9
